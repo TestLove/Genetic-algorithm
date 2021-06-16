@@ -14,7 +14,6 @@ import java.util.logging.Logger;
  */
 public class Population {
     public static Gene maxGene = new Gene("0");
-    Logger logger = Logger.getGlobal();
     ArrayList<Gene> individuals = new ArrayList<>();
     ArrayList<Gene> newIndividuals = new ArrayList<>();
     public void  init(int nums){
@@ -32,7 +31,6 @@ public class Population {
 
         }
         calculateFitRate();
-//        individuals.forEach(System.out::println);
 
     }
     private   void select() {
@@ -41,11 +39,9 @@ public class Population {
         }
         individuals = new ArrayList<Gene>(newIndividuals);
         newIndividuals.clear();
-//        System.out.println("结束选择,此时种群为: "+individuals.toString());
 
     }
     private void cross(){
-//        System.out.println("开始交叉,此时种群为: "+individuals.toString());
         int size = Constants.DIGITS;
         int a = ((int) (Math.random() * size)) % size;
         int b = ((int) (Math.random() * size)) % size;
@@ -60,7 +56,6 @@ public class Population {
         gene1.setData(gene1Data.substring(0,min)+substring2+gene1Data.substring(max));
         gene2.setData(gene2Data.substring(0,min)+substring1+gene2Data.substring(max));
 
-//        System.out.println("结束交叉,此时种群为: "+individuals.toString());
 
     }
     public void evolution(int i){
@@ -97,7 +92,6 @@ public class Population {
 
         }
         calculateFitRate();
-//        individuals.forEach(System.out::println);
 
     }
     private String nextIndividual(){
